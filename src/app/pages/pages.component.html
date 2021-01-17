@@ -1,0 +1,52 @@
+<nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <div class="sidebar-logo">
+            <a href="https://ng.ant.design/" target="_blank">
+                <img src="https://static.wixstatic.com/media/d12a1f_48321d1f36b54ede87fd942d54137b64~mv2.png/v1/fill/w_59,h_59,al_c,q_85,usm_0.66_1.00_0.01/Pi%C3%B1%C3%B3n%20azul.webp" alt="logo">
+                <h1>Serviacero</h1>
+            </a>
+        </div>
+        <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+            <li nz-submenu nzOpen nzTitle="Administracion" nzIcon="control">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/admin">Proyectos</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/contact">Contacto</a>
+                    </li>
+                    <!-- <li nz-menu-item nzMatchRouter>
+                        <a>Monitor</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Workplace</a>
+                    </li> -->
+                </ul>
+            </li>
+            <!-- <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Basic Form</a>
+                    </li>
+                </ul>
+            </li> -->
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header>
+            <div class="app-header">
+                <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+            </div>
+        </nz-header>
+        <nz-content>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+    </nz-layout>
+</nz-layout>

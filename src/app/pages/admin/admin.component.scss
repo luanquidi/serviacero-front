@@ -1,0 +1,32 @@
+.dropify-preview {
+    .dropify-infos {
+        .dropify-infos-inner {
+            p.dropify-infos-message {
+                background: #000 !important;
+            }
+        }
+    }
+}
+
+[nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+}
+
+nz-button-group [nz-button] {
+    margin-right: 0;
+}
+
+.btn-save {
+    margin-top: 15px;
+    background: #39ce9e;
+    border: #39ce9e;
+}
+
+.title-dropy {
+    text-align: center;
+}
+
+.text-area-proyecto {
+    margin-top: 10px;
+}
