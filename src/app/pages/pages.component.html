@@ -10,10 +10,13 @@
             <li nz-submenu nzOpen nzTitle="Administracion" nzIcon="control">
                 <ul>
                     <li nz-menu-item nzMatchRouter>
-                        <a routerLink="/admin">Proyectos</a>
+                        <a routerLink="/admin">Creación proyectos</a>
                     </li>
                     <li nz-menu-item nzMatchRouter>
-                        <a routerLink="/contact">Contacto</a>
+                        <a routerLink="/admin-projects">Proyectos</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/contact">Contactos</a>
                     </li>
                     <!-- <li nz-menu-item nzMatchRouter>
                         <a>Monitor</a>
@@ -21,6 +24,13 @@
                     <li nz-menu-item nzMatchRouter>
                         <a>Workplace</a>
                     </li> -->
+                </ul>
+            </li>
+            <li nz-submenu nzTitle="Salir" nzIcon="poweroff">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a (click)="userService.logout()">Cerrar sesión</a>
+                    </li>
                 </ul>
             </li>
             <!-- <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">

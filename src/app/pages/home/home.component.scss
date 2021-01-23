@@ -74,7 +74,7 @@ body {
     display: flex;
     justify-content: center;
     img {
-        width: 50%;
+        width: 70%;
         -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .75);
         -moz-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .75);
         box-shadow: 0 0 10px 2px rgba(0, 0, 0, .75);
@@ -399,4 +399,25 @@ img {
     text-align: center;
     background: transparent;
     padding: 40px;
+}
+
+.mapa {
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 .25rem .25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+.mapa iframe {
+    width: 100%;
+    max-height: 600px;
+}
+
+
+/* -----------------------------------------------------media query-------------------------------- */
+
+@media screen and (max-width: 800px) {
+    .mapa {
+        width: 80%;
+        margin: auto;
+    }
 }

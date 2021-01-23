@@ -1,10 +1,11 @@
 <div nz-row>
     <div nz-col nzSpan="12" nzOffset="6">
-        <h2 class="title-dropy" nz-typography>Sube un nuevo proyecto</h2>
+        <h2 class="title-dropy" nz-typography>Subir un proyecto</h2>
         <!-- <button nz-button nzType="primary" [nzBlock]="true" [nzSize]="size" nzShape="round"><i nz-icon nzType="upload"></i>Subir proyecto</button> -->
         <input type="file" class="dropify" data-max-file-size="3M" data-allowed-file-extensions='["png","jpg", "jpeg"]' (change)="project = $event.target.files" />
-        <!-- <input class="text-area-proyecto" nz-input placeholder="Nombre del proyecto" /> -->
-        <!-- <textarea class="text-area-proyecto" nz-input placeholder="Descripción del proyecto" [nzAutosize]="{ minRows: 3, maxRows: 5 }"></textarea> -->
+        <input class="text-area-proyecto" [(ngModel)]="name" nz-input placeholder="Nombre del proyecto" />
+        <textarea class="text-area-proyecto" [(ngModel)]="description" nz-input placeholder="Descripción del proyecto" [nzAutosize]="{ minRows: 3, maxRows: 5 }"></textarea>
+        <nz-date-picker class="text-area-proyecto date" [(ngModel)]="date"></nz-date-picker>
         <button nz-button nzType="primary" (click)="saveProject()" [nzBlock]="true" [nzSize]="size" class="btn-save" nzShape="round"><i nz-icon nzType="save" ></i>Guardar</button>
     </div>
 </div>

@@ -18,12 +18,16 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { ContactComponent } from './contact/contact.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { ServicesModule } from '../services/services.module';
+import { ProjectsComponent } from './projects/projects.component';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 
 
 
 @NgModule({
-  declarations: [WelcomeComponent, AdminComponent, HomeComponent, PagesComponent, ContactComponent],
+  declarations: [WelcomeComponent, AdminComponent, HomeComponent, PagesComponent, ContactComponent, ProjectsComponent],
   imports: [
     CommonModule,
     IconsProviderModule,
@@ -42,7 +46,10 @@ import { NzCardModule } from 'ng-zorro-antd/card';
     NzListModule,
     NzInputModule,
     NzCardModule,
-    PAGES_ROUTES
+    NzDatePickerModule,
+    NzModalModule,
+    PAGES_ROUTES,
+    ServicesModule
   ],
    exports: [WelcomeComponent, AdminComponent, HomeComponent]
 })

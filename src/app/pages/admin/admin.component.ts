@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NzButtonSize } from 'ng-zorro-antd/button';
 import { ToastrService } from 'ngx-toastr';
+import { ProjectService } from '../../services/project.service';
 
 declare var $;
 @Component({
@@ -12,8 +13,13 @@ export class AdminComponent implements OnInit {
   size: NzButtonSize = 'large';
   project: File[];
   value?: string;
+  date = null;
+  isEnglish = false;
+  name: string;
+  description: string;
 
- constructor(private toastr: ToastrService) {
+
+ constructor(private toastr: ToastrService, private projectService: ProjectService) {
   // this.toastr.success('Hello world!', 'Toastr fun!');
  }
  ngOnInit(): void {
@@ -29,11 +35,40 @@ export class AdminComponent implements OnInit {
  }
 
  saveProject(): void {
+
+  if(!this.name || !this.description || !this.date || !this.project){
+    this.toastr.error('Todos los campos son obligatorios');
+    return;
+  }
+   const project = {
+     name: this.name,
+     description: this.description,
+     createdAt: this.date,
+     project: this.project[0]
+   }
+    
+    
+
    if(!this.validateFileExtension(this.project, ['png', 'jpg', 'jpeg'])){
      this.toastr.error('La imagen que intenta subir no tiene una extensión correcta (png, jpg ó jpeg).', 'Opps!');
      return;
    }
-   // To do enviar imagen
+  
+   this.projectService.sendProject(project).subscribe((res) => {
+    if(res.ok){
+      this.toastr.success(res.message);
+      $('.dropify-clear').click();
+      if ($('.dropify-wrapper').hasClass('has-error')) {
+        $('.dropify-wrapper').removeClass('has-error');
+      }
+
+      this.name = '';
+      this.description = '';
+      this.date = null;
+    }else {
+      this.toastr.error(res.message);
+    }
+  });
  }
 
  validateFileExtension(file: File[], extensionValid: any[]): boolean {

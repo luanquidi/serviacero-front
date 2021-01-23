@@ -2,6 +2,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { PagesComponent } from './pages.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginGuard } from '../guards/login.guard';
+import { ProjectsComponent } from './projects/projects.component';
 
 // Guards
 
@@ -10,7 +12,7 @@ const pagesRoutes: Routes = [
     {
       path: '',
       component: PagesComponent,
-    //   canActivate: [LoginGuard],
+      canActivate: [LoginGuard],
       children: [
             {
               path: 'admin',
@@ -20,6 +22,11 @@ const pagesRoutes: Routes = [
             {
               path: 'contact',
               component: ContactComponent,
+            //   data: { titulo: 'Dashboard', tituloPadre: 'Principal' },
+            },
+            {
+              path: 'admin-projects',
+              component: ProjectsComponent,
             //   data: { titulo: 'Dashboard', tituloPadre: 'Principal' },
             },
             // {
