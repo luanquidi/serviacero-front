@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services/project.service';
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment';
+import Swal from 'sweetalert2';
+
 declare var $;
 @Component({
   selector: 'app-projects',
@@ -14,16 +17,10 @@ export class ProjectsComponent implements OnInit {
   isVisible = false;
   item: any = {};
   project: File[];
+  p: number = 1;
 
   constructor(private projectService: ProjectService, private toastr: ToastrService) {
-    $('.dropify').dropify({
-      messages: {
-          'default': '',
-          'replace': '',
-          'remove':  'Eliminar',
-          'error':   'Ooops, something wrong happended.'
-      }
-    });
+    
   }
 
   ngOnInit(): void {
@@ -42,16 +39,55 @@ export class ProjectsComponent implements OnInit {
   }
 
   editItem(item: any): void {
+    
     this.item = item;
+    // console.log(item);
+    this.item.createdAt = moment(this.item.createdAt).format();
     this.isVisible = true;
+
+    setTimeout(() => {
+      console.log('ok');
+      $('.dropifys').dropify({
+        messages: {
+            'default': '',
+            'replace': '',
+            'remove':  'Eliminar',
+            'error':   'Ooops, something wrong happended.'
+        }
+      });
+    }, 100);
+    
   }
 
-  handleOk(): void {
-
+  handleOk(item: any): void {
+    this.editProject(item);
   }
 
   deleteItem(item: any): void {
-    
+    Swal.fire({
+      title: '¿Desea eliminar este proyecto?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: `Si, eliminar`,
+      denyButtonText: `No, cancelar`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.projectService.deleteProject(item._id).subscribe((res) => {
+          if(res.ok) {
+            this.toastr.success(res.message);
+            let array: any = this.data.filter((items, index) => {
+              return item._id != items._id;
+            });
+            this.data = array;
+          }else {
+            this.toastr.error(res.message);
+          }
+        });
+      } else if (result.isDenied) {
+        // Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
   }
 
   handleCancel(): void {
@@ -65,7 +101,6 @@ export class ProjectsComponent implements OnInit {
   }
 
   handleDelete(): void {
-    console.log('Button cancel clicked!');
     this.isVisible = false;
   }
 
@@ -84,42 +119,44 @@ export class ProjectsComponent implements OnInit {
     return isValid > 0;
   }
 
-  // saveProject(): void {
+  dateProject(date: any): any {
+    moment.locale('es');
+    return moment(date.createdAt).format('dddd Do MMMM YYYY');
+  }
 
-  //   if(!this.item.name || !this.item.description || !this.item.createdAt){
-  //     this.toastr.error('Todos los campos son obligatorios');
-  //     return;
-  //   }
-  //    const project = {
-  //      name: this.item.name,
-  //      description: this.item.description,
-  //      createdAt: this.item.createdAt,
-  //      project: this.project[0] ? this.project[0] : ''
-  //    }
-      
-      
+  editProject(item: any): void {
+    if(!item.name || !item.description || !item.createdAt){
+      this.toastr.error('Todos los campos son obligatorios');
+      return;
+    }
+     const project = {
+       id : item._id,
+       name: item.name,
+       description: item.description,
+       createdAt: item.createdAt,
+       project: this.project ? this.project[0] : null
+     }
+
+     if (item.project) {
+      if(!this.validateFileExtension(this.project, ['png', 'jpg', 'jpeg'])){
+        this.toastr.error('La imagen que intenta subir no tiene una extensión correcta (png, jpg ó jpeg).', 'Opps!');
+        return;
+      }
+     }
+
+     this.projectService.editProject(project).subscribe((res) => {
+      if(res.ok){
+        this.toastr.success(res.message);
+        this.project = null;
+        $('.dropify-clear').click();
+        if ($('.dropify-wrapper').hasClass('has-error')) {
+          $('.dropify-wrapper').removeClass('has-error');
+        }
   
-  //    if(!this.validateFileExtension(this.project, ['png', 'jpg', 'jpeg'])){
-  //      this.toastr.error('La imagen que intenta subir no tiene una extensión correcta (png, jpg ó jpeg).', 'Opps!');
-  //      return;
-  //    }
-    
-  //    this.projectService.sendProject(project).subscribe((res) => {
-  //     if(res.ok){
-  //       this.toastr.success(res.message);
-  //       $('.dropify-clear').click();
-  //       if ($('.dropify-wrapper').hasClass('has-error')) {
-  //         $('.dropify-wrapper').removeClass('has-error');
-  //       }
-  
-  //       this.name = '';
-  //       this.description = '';
-  //       this.date = null;
-  //     }else {
-  //       this.toastr.error(res.message);
-  //     }
-  //   });
-  //  }
-  
+      }else {
+        this.toastr.error(res.message);
+      }
+    });
+   }
 
 }

@@ -1,0 +1,17 @@
+<div id="top-bar" data-aos="fade-up">
+    <div class="img-menu">
+        <img src="https://static.wixstatic.com/media/d12a1f_3b84a65b4ed648719e92aebc00fd1794~mv2.png/v1/fill/w_383,h_50,al_c,q_85,usm_0.66_1.00_0.01/ServiAcero%20sin%20copy.webp" alt="">
+    </div>
+    <!-- <div id="small-logo" data-aos="fade-right">G/K</div> -->
+</div>
+
+<div class="contenedor">
+    <div *ngFor="let item of projects">
+        <p class="name-project">
+            <span>{{ item.name | uppercase }}</span>
+            <span>{{ dateProject(item) |uppercase }}</span>
+            <button (click)="navigate(item._id)" nz-button nzType="primary" nzSize="large" nzShape="circle"><i nz-icon nzType="eye"></i></button>
+        </p>
+    </div>
+    <button style="margin-top: 20px;" routerLink="/home" nz-button nzType="primary" nzSize="large" nzShape="circle"><i nz-icon nzType="import"></i></button>
+</div>

@@ -403,6 +403,8 @@ img {
 
 .mapa {
     width: 100%;
+    // margin: 15px;
+    padding: 15px;
     overflow: hidden;
     box-shadow: 0 .25rem .25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
 }
@@ -419,5 +421,19 @@ img {
     .mapa {
         width: 80%;
         margin: auto;
+        // margin-bottom: 30px;
+    }
+}
+
+[nz-button] {
+    margin-bottom: 12px;
+}
+
+.button-projects {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    button {
+        width: 500px;
     }
 }

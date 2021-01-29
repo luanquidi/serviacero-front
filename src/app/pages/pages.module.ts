@@ -22,12 +22,15 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { ServicesModule } from '../services/services.module';
 import { ProjectsComponent } from './projects/projects.component';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ProjectComponent } from './project/project.component';
+import { ProjectViewComponent } from './project-view/project-view.component';
 
 
 
 
 @NgModule({
-  declarations: [WelcomeComponent, AdminComponent, HomeComponent, PagesComponent, ContactComponent, ProjectsComponent],
+  declarations: [WelcomeComponent, AdminComponent, HomeComponent, PagesComponent, ContactComponent, ProjectsComponent, ProjectComponent, ProjectViewComponent],
   imports: [
     CommonModule,
     IconsProviderModule,
@@ -47,6 +50,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     NzInputModule,
     NzCardModule,
     NzDatePickerModule,
+    NgxPaginationModule,
     NzModalModule,
     PAGES_ROUTES,
     ServicesModule

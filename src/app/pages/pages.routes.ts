@@ -29,6 +29,7 @@ const pagesRoutes: Routes = [
               component: ProjectsComponent,
             //   data: { titulo: 'Dashboard', tituloPadre: 'Principal' },
             },
+            
             // {
             //   path: 'importation',
             //   component: ImportationComponent,

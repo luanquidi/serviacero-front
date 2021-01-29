@@ -34,3 +34,8 @@ nz-button-group [nz-button] {
 .text-area-proyecto {
     margin-top: 10px;
 }
+
+:host ::ng-deep .ngx-pagination {
+    display: flex;
+    justify-content: center;
+}
