@@ -414,6 +414,10 @@ img {
     max-height: 600px;
 }
 
+[nz-form] {
+    max-width: 600px;
+}
+
 
 /* -----------------------------------------------------media query-------------------------------- */
 
@@ -435,5 +439,23 @@ img {
     margin: 20px;
     button {
         width: 500px;
+    }
+}
+
+.contacto {
+    // display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    align-items: center;
+    div {
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        text-align: center;
+        form {
+            text-align: center;
+        }
     }
 }

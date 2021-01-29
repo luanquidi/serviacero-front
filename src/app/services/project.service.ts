@@ -125,5 +125,45 @@ export class ProjectService {
       )
     );
   }
+
+  getContacts(): Observable<any> {
+    const url = `${this.baseUrl}/api/contacts/contacts`;
+    return this.http.get(url).pipe(
+      map(
+        (res: any) => {
+          return res;
+        }
+      ),
+      catchError(
+        (error: any) => {
+          return error;
+        }
+      )
+    );
+  }
+
+  insertCorreo(correo: any): Observable<any> {
+    const token: string = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    const url = `${this.baseUrl}/api/contacts/add-contact`;
+
+    $('#ProcesoAjax').show();
+    return this.http.post(url, {correo}, {headers: headers}).pipe(
+      map(
+        (res: any) => {
+          $('#ProcesoAjax').hide();
+          return res;
+        }
+      ),
+      catchError(
+        (error: any) => {
+          $('#ProcesoAjax').hide();
+          return error;
+        }
+      )
+    );
+  }
   
 }

@@ -25,6 +25,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProjectComponent } from './project/project.component';
 import { ProjectViewComponent } from './project-view/project-view.component';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 
 
@@ -52,6 +53,7 @@ import { ProjectViewComponent } from './project-view/project-view.component';
     NzDatePickerModule,
     NgxPaginationModule,
     NzModalModule,
+    NzSelectModule,
     PAGES_ROUTES,
     ServicesModule
   ],

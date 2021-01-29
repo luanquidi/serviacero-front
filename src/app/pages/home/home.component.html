@@ -240,6 +240,49 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d993.615410584083!2d-75.45617917077605!3d5.028623335714855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMDEnNDMuMCJOIDc1wrAyNycyMC4zIlc!5e0!3m2!1ses!2sco!4v1611081942835!5m2!1ses!2sco"
             width="1600" height="550" frameborder="0" style="border:0" allowfullscreen></iframe>
     </section>
+
+    <div class="info-banner" data-aos="fade-up">
+        <h2 nz-typography>
+            CONTACTO
+        </h2>
+    </div>
+
+    <div class="contacto">
+        <div>
+            <form nz-form [formGroup]="validateForm">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="8" nzRequired nzFor="mail">Correo</nz-form-label>
+                    <nz-form-control [nzSpan]="18" nzErrorTip="Por favor ingrese un email valido.">
+                        <input id="mail" type="email" [(ngModel)]="correo.mail" nz-input formControlName="mail" placeholder="Correo de contacto" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="8" nzRequired nzFor="cel">Teléfono</nz-form-label>
+                    <nz-form-control [nzSpan]="16" nzErrorTip="Ingrese un teléfono.">
+                        <input id="cel" type="text" [(ngModel)]="correo.cel" nz-input formControlName="cel" placeholder="Ingrese número de teléfono" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="8" nzRequired nzFor="asunto">Asunto</nz-form-label>
+                    <nz-form-control [nzSpan]="16" nzErrorTip="Ingrese un teléfono.">
+                        <input id="asunto" type="text" [(ngModel)]="correo.asunto" nz-input formControlName="asunto" placeholder="Ingrese el asunto" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="8" nzFor="gender" nzRequired>Mensaje</nz-form-label>
+                    <nz-form-control [nzSpan]="16" nzErrorTip="Por favor ingrese un mensaje">
+                        <textarea nz-input formControlName="mensaje" [(ngModel)]="correo.mensaje" placeholder="Ingrese el mensaje" [nzAutosize]="{ minRows: 6, maxRows: 12 }"></textarea>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control [nzSpan]="12" [nzOffset]="5">
+                        <button nz-button nzType="primary" (click)="sendCorreo()">Enviar</button>
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+        </div>
+
+    </div>
 </section>
 
 <!-- $("#button").click(function() {

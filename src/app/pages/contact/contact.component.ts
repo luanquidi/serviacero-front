@@ -1,4 +1,6 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,49 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class ContactComponent implements OnInit {
 
   loading = false;
-  data = [
-    {
-      title: 'Ant Design Title 1'
-    },
-    {
-      title: 'Ant Design Title 2'
-    },
-    {
-      title: 'Ant Design Title 3'
-    },
-    {
-      title: 'Ant Design Title 4'
-    }
-  ];
+  data: any = [];
+  p: number = 1;
 
-  ngOnInit(): void {}
+  constructor(private projectService: ProjectService){}
+  ngOnInit(): void {
+    this.projectService.getContacts().subscribe((res) => {
+      if(res.ok){
+        console.log(res);
+        this.data = res.contacts;
+      }
 
-  change(): void {
-    this.loading = true;
-    if (this.data.length > 0) {
-      setTimeout(() => {
-        this.data = [];
-        this.loading = false;
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        this.data = [
-          {
-            title: 'Ant Design Title 1'
-          },
-          {
-            title: 'Ant Design Title 2'
-          },
-          {
-            title: 'Ant Design Title 3'
-          },
-          {
-            title: 'Ant Design Title 4'
-          }
-        ];
-        this.loading = false;
-      }, 1000);
-    }
+    })
   }
 
 }
