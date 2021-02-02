@@ -1,18 +1,24 @@
 <div id="top-bar" data-aos="fade-up">
     <div class="img-menu">
-        <img src="https://static.wixstatic.com/media/d12a1f_3b84a65b4ed648719e92aebc00fd1794~mv2.png/v1/fill/w_383,h_50,al_c,q_85,usm_0.66_1.00_0.01/ServiAcero%20sin%20copy.webp" alt="">
+        <a href="/home">
+            <img src="https://static.wixstatic.com/media/d12a1f_3b84a65b4ed648719e92aebc00fd1794~mv2.png/v1/fill/w_383,h_50,al_c,q_85,usm_0.66_1.00_0.01/ServiAcero%20sin%20copy.webp" alt="">
+        </a>
     </div>
     <!-- <div id="small-logo" data-aos="fade-right">G/K</div> -->
 </div>
 
 <div class="contenedor">
-    <div>
-        <div>
-            <img [src]="item.imgUrl" alt="">
+    <div class="contenedor-info">
+        <app-carrousel-projects-owl [images]="item.imgUrl"></app-carrousel-projects-owl>
+        <!-- <app-carrousel-projects [images]="item.imgUrl"></app-carrousel-projects> -->
+        <!-- <div>
+            <img [src]="item.imgUrl[0]" alt="">
+        </div> -->
+        <div class="item">
+            <h2 nz-typography>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+            <p>{{ dateProject(item) | uppercase}}</p>
+            <button routerLink="/projects" nz-button nzType="primary" nzSize="large" nzShape="circle"><i nz-icon nzType="import"></i></button>
         </div>
-        <h2 nz-typography>{{ item.name }}</h2>
-        <p>{{ item.description }}</p>
-        <p>{{ dateProject(item) | uppercase}}</p>
-        <button routerLink="/projects" nz-button nzType="primary" nzSize="large" nzShape="circle"><i nz-icon nzType="import"></i></button>
     </div>
 </div>

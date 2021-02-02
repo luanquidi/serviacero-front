@@ -55,7 +55,9 @@ export class HomeComponent implements OnInit {
           $('.owl-carousel').owlCarousel({
               loop: true,
               autoplay: true,
-              autoplayTimeout: 1000
+              autoplayTimeout: 5000,
+              smartSpeed: 2000,
+              animateIn: true
           });
       });
       }

@@ -41,12 +41,10 @@ export class ProjectsComponent implements OnInit {
   editItem(item: any): void {
     
     this.item = item;
-    // console.log(item);
     this.item.createdAt = moment(this.item.createdAt).format();
     this.isVisible = true;
 
     setTimeout(() => {
-      console.log('ok');
       $('.dropifys').dropify({
         messages: {
             'default': '',
@@ -91,12 +89,12 @@ export class ProjectsComponent implements OnInit {
   }
 
   handleCancel(): void {
-    console.log('Button ok clicked!');
+    // console.log('Button ok clicked!');
     this.isVisible = false;
   }
 
   handleEdit(): void {
-    console.log('Button cancel clicked!');
+    // console.log('Button cancel clicked!');
     this.isVisible = false;
   }
 
@@ -134,7 +132,7 @@ export class ProjectsComponent implements OnInit {
        name: item.name,
        description: item.description,
        createdAt: item.createdAt,
-       project: this.project ? this.project[0] : null
+       project: this.project ? this.project : null
      }
 
      if (item.project) {

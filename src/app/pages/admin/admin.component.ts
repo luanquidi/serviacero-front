@@ -40,14 +40,19 @@ export class AdminComponent implements OnInit {
     this.toastr.error('Todos los campos son obligatorios');
     return;
   }
-   const project = {
-     name: this.name,
-     description: this.description,
-     createdAt: this.date,
-     project: this.project[0]
-   }
-    
-    
+
+  
+  // let images = [];
+  // [...this.project].forEach((item: any) => {
+  //    images.push(item);
+  // });
+
+  const project = {
+    name: this.name,
+    description: this.description,
+    createdAt: this.date,
+    project: this.project
+  }
 
    if(!this.validateFileExtension(this.project, ['png', 'jpg', 'jpeg'])){
      this.toastr.error('La imagen que intenta subir no tiene una extensión correcta (png, jpg ó jpeg).', 'Opps!');

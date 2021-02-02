@@ -18,6 +18,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NzBackTopModule } from 'ng-zorro-antd/back-top';
 import { LoginModule } from './login/login/login.module';
 import { TokenInterceptor } from './token.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(en);
 
@@ -36,6 +37,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     PagesModule,
     LoginModule,
+    SharedModule,
     NzBackTopModule,
     ToastrModule.forRoot()
   ],

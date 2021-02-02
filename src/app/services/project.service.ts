@@ -18,12 +18,16 @@ export class ProjectService {
     const token: string = sessionStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
+      
     });
     const url = `${this.baseUrl}/api/project/add-project`;
     const fd = new FormData();
+
     fd.append('name', project.name);
     fd.append('description', project.description);
-    fd.append('image', project.project);
+    for(let img of project.project) {
+      fd.append('image', img);
+    }
     fd.append('createdAt', project.createdAt);
 
     $('#ProcesoAjax').show();
@@ -53,7 +57,12 @@ export class ProjectService {
     const fd = new FormData();
     fd.append('name', project.name);
     fd.append('description', project.description);
-    fd.append('image', project.project);
+    if(project.project) {
+      for(let img of project.project) {
+        fd.append('image', img);
+      }
+    }
+    
     fd.append('createdAt', project.createdAt);
     fd.append('id', project.id);
 

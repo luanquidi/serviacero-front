@@ -1,16 +1,13 @@
-<div id="top-bar" data-aos="fade-up">
-    <div class="img-menu">
-        <img src="https://static.wixstatic.com/media/d12a1f_3b84a65b4ed648719e92aebc00fd1794~mv2.png/v1/fill/w_383,h_50,al_c,q_85,usm_0.66_1.00_0.01/ServiAcero%20sin%20copy.webp" alt="">
-    </div>
-    <!-- <div id="small-logo" data-aos="fade-right">G/K</div> -->
-</div>
+<app-navbar></app-navbar>
 <div id="intro">
     <div class="larger" id="name">
         <div class="img-serviacero">
             <img src="https://static.wixstatic.com/media/d12a1f_48321d1f36b54ede87fd942d54137b64~mv2.png/v1/fill/w_59,h_59,al_c,q_85,usm_0.66_1.00_0.01/Pi%C3%B1%C3%B3n%20azul.webp" alt="">
         </div>
-        <h2 data-aos="flip-left">Serviacero</h2>
-
+        <h2 data-aos="flip-left" style="color: #121e48; font-size: 60px;">Serviacero</h2>
+        <div class="info-banner-intro" data-aos="flip-up">
+            <p>INGENIERÍA, DISEÑO Y MECANIZADOS INDUSTRIALES</p>
+        </div>
     </div>
     <div class="section-arrow">
         <div class="block"></div>
@@ -21,34 +18,8 @@
 </div>
 <section>
     <div>
-        <div class="info-banner" data-aos="fade-up">
-            <h2 nz-typography>
-                INGENIERÍA, DISEÑO Y MECANIZADOS INDUSTRIALES
-            </h2>
-        </div>
-        <div class="owl-carousel owl-theme carrousel-main">
-            <div>
-                <div class="item-carrousel">
-                    <img src="https://i.pinimg.com/originals/d1/7d/e1/d17de177f36718c749d89b6a4e9831e6.jpg" alt="">
-                </div>
-            </div>
-            <div>
-                <div class="item-carrousel">
-                    <img src="https://i.pinimg.com/originals/d1/7d/e1/d17de177f36718c749d89b6a4e9831e6.jpg" alt="">
-                </div>
-            </div>
-            <div>
-                <div class="item-carrousel">
-                    <img src="https://i.pinimg.com/originals/d1/7d/e1/d17de177f36718c749d89b6a4e9831e6.jpg" alt="">
-                </div>
-            </div>
-            <div>
-                <div class="item-carrousel">
-                    <img src="https://i.pinimg.com/originals/d1/7d/e1/d17de177f36718c749d89b6a4e9831e6.jpg" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="info-banner" data-aos="fade-up">
+
+        <div class="info-banner" data-aos="fade-up" id="servicios">
             <h2 nz-typography>
                 FABRICACIÓN DISEÑO Y MANTENIMIENTO
             </h2>
@@ -151,7 +122,24 @@
             </div>
 
         </div>
-        <div class="info-banner" data-aos="fade-up">
+
+        <div class="info-banner" data-aos="fade-up" id="proyectos">
+            <h2 nz-typography>
+                PROYECTOS
+            </h2>
+        </div>
+        <div class="owl-carousel owl-theme carrousel-proyecto">
+            <div *ngFor="let item of projects">
+                <div class="item-carrousel">
+                    <img [src]="item.imgUrl[0]" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="button-projects">
+            <button nz-button nzType="primary" nzBlock [routerLink]="['/projects']">Ver proyectos</button>
+        </div>
+        <div class="info-banner" data-aos="fade-up" id="nosotros">
             <h2 nz-typography>
                 NOSOTROS
             </h2>
@@ -176,23 +164,35 @@
         </div>
         <div class="info-banner" data-aos="fade-up">
             <h2 nz-typography>
-                PROYECTOS
+                NUESTRO EQUIPO
             </h2>
         </div>
-        <div class="owl-carousel owl-theme carrousel-proyecto">
-            <div *ngFor="let item of projects">
+        <div class="owl-carousel owl-theme carrousel-main">
+            <div>
                 <div class="item-carrousel">
-                    <img [src]="item.imgUrl" alt="">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8MHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="item-carrousel">
+                    <img src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8MHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="item-carrousel">
+                    <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8MHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="item-carrousel">
+                    <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8MHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
                 </div>
             </div>
         </div>
 
-        <div class="button-projects">
-            <button nz-button nzType="primary" nzBlock [routerLink]="['/projects']">Ver proyectos</button>
-        </div>
 
 
-        <div class="info-banner" data-aos="fade-up">
+        <div class="info-banner" data-aos="fade-up" id="clientes">
             <h2 nz-typography>
                 CLIENTES
             </h2>
@@ -241,7 +241,30 @@
             width="1600" height="550" frameborder="0" style="border:0" allowfullscreen></iframe>
     </section>
 
-    <div class="info-banner" data-aos="fade-up">
+    <div class="info-banner" data-aos="fade-up" id="servicios">
+        <h2 nz-typography>
+            OFICINA PRINCIPAL
+        </h2>
+    </div>
+
+    <div class="info-services" id="hola2">
+        <p>
+            Parque Industrial Los Pinos - La Enea, Bodega No. 3 Manizales, Caldas, Colombia
+        </p>
+        <p>
+            administracion@serviacero.co
+        </p>
+
+        <p>
+            Teléfono: (6) 874 0990
+        </p>
+
+        <p>Celular: 313 731 1668</p>
+
+        <p>Si necesita más información, comuníquese con nosotros ​ Envíenos su mensaje completando los datos a continuación y con gusto atenderemos sus inquietudes</p>
+    </div>
+
+    <div class="info-banner" data-aos="fade-up" id="contacto">
         <h2 nz-typography>
             CONTACTO
         </h2>

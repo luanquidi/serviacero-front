@@ -26,6 +26,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProjectComponent } from './project/project.component';
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { SharedModule } from '../shared/shared.module';
+import { ComponentsModule } from '../components/components.module';
 
 
 
@@ -52,8 +54,10 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     NzCardModule,
     NzDatePickerModule,
     NgxPaginationModule,
+    SharedModule,
     NzModalModule,
     NzSelectModule,
+    ComponentsModule,
     PAGES_ROUTES,
     ServicesModule
   ],

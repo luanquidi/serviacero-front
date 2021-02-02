@@ -1,0 +1,38 @@
+.carrousel-proyecto {
+    background: #000;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgb(50, 50, 50);
+    background-blend-mode: soft-light;
+    background-image: url(https://images.unsplash.com/photo-1566226196556-ef949ce5f1a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80);
+}
+
+.item-carrousel {
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    img {
+        width: 70%;
+        -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .75);
+        -moz-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .75);
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, .75);
+    }
+}
+
+:host ::ng-deep .owl-nav {
+    display: flex;
+    justify-content: center;
+    button {
+        // background: #000 !important;
+        font-size: 40px !important;
+    }
+    button:focus {
+        outline: 0;
+    }
+}
