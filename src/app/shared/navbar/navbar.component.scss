@@ -42,3 +42,16 @@
         }
     }
 }
+
+@media screen and (max-width: 800px) {
+    #top-bar {
+        display: inline;
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                margin: 0;
+            }
+        }
+    }
+}
