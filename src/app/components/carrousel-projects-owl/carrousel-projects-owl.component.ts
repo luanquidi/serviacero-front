@@ -7,6 +7,8 @@ declare var $;
 })
 export class CarrouselProjectsOwlComponent implements OnInit {
   @Input() images: any[];
+  isVisible = false;
+  imageItem: any;
   constructor() { }
 
   ngOnInit(): void {
@@ -29,6 +31,20 @@ export class CarrouselProjectsOwlComponent implements OnInit {
       });
     }, 100);
     
+  }
+
+  show(item: any): void {
+    this.imageItem = item;
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    // this.editProject(item);
+  }
+
+  handleCancel(): void {
+    // this.editProject(item);
+    this.isVisible = false;
   }
 
 }

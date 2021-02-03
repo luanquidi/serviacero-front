@@ -9,7 +9,7 @@ import * as moment from 'moment';
 })
 export class ProjectViewComponent implements OnInit {
 
-  item: any;
+  item: any = {};
   constructor(private router: Router, private projectService: ProjectService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

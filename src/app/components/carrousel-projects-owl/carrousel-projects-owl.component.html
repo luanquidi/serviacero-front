@@ -1,7 +1,20 @@
 <div class="owl-carousel owl-theme" style="margin-top: 15px;">
     <div *ngFor="let item of images">
-        <div class="item-carrousel">
-            <img [src]="item" alt="">
+        <div class="item-carrousel" (click)="show(item)">
+            <img [src]="item[1]" alt="" (click)="show(item)">
         </div>
     </div>
 </div>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Imagen" (nzOnCancel)="handleCancel()" nzCancelText="Cerrar" nzWidth="800px">
+    <ng-container *nzModalContent>
+        <div nz-row>
+            <div nz-col nzSpan="24" nzOffset="12">
+                <div class="imagen-grande" [ngStyle]="{'background-image': 'url(' + imageItem[0] + ')'}">
+
+                </div>
+                <!-- <img [src]="imageItem[0]" alt=""> -->
+            </div>
+        </div>
+    </ng-container>
+</nz-modal>
